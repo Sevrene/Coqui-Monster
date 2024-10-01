@@ -6,39 +6,8 @@ const description =
 const themeColor = constStyles.brandPurple;
 
 /**
- * Metadata object containing information about the application.
- * @typedef {Object} Metadata
- * @property {Object} title - Object containing title information.
- * @property {string} title.template - Template for the title.
- * @property {string} title.default - Default value for the title.
- * @property {string} applicationName - Name of the application.
- * @property {string} description - Description of the application.
- * @property {string[]} keywords - Array of keywords related to the application.
- * @property {string} metadataBase - Base URL for metadata.
- * @property {string} author - Author of the application.
- * @property {string} creator - Creator of the application.
- * @property {Object} openGraph - Object containing Open Graph information.
- * @property {string} openGraph.title - Title for Open Graph.
- * @property {string} openGraph.description - Description for Open Graph.
- * @property {string} openGraph.url - URL for Open Graph.
- * @property {string} openGraph.siteName - Site name for Open Graph.
- * @property {Object[]} openGraph.images - Array of images for Open Graph.
- * @property {string} openGraph.images.url - URL of the image.
- * @property {number} openGraph.images.width - Width of the image.
- * @property {number} openGraph.images.height - Height of the image.
- * @property {string} openGraph.images.alt - Alt text for the image.
- * @property {string} openGraph.type - Type of the Open Graph.
- * @property {string} openGraph.color - Color for Open Graph.
- * @property {Object} twitter - Object containing Twitter information.
- * @property {string} twitter.title - Title for Twitter.
- * @property {string} twitter.description - Description for Twitter.
- * @property {Object} twitter.image - Image object for Twitter.
- * @property {string} twitter.image.url - URL of the image.
- * @property {number} twitter.image.width - Width of the image.
- * @property {number} twitter.image.height - Height of the image.
- * @property {string} twitter.image.alt - Alt text for the image.
- * @property {string} twitter.card - Card type for Twitter.
- * @property {string} twitter.color - Color for Twitter.
+ * Represents the metadata configuration.
+ * See {@link https://nextjs.org/docs/app/api-reference/functions/generate-metadata#the-metadata-object | Next.js Metadata Object} for more information.
  */
 export const metadata = {
   title: {
@@ -86,12 +55,8 @@ export const metadata = {
 };
 
 /**
- * Represents the viewport configuration.
- * @typedef {Object} Viewport
- * @property {string} themeColor - The theme color of the viewport.
- * @property {string} width - The width of the viewport.
- * @property {number} initialScale - The initial scale of the viewport.
- * @property {number} maximumScale - The maximum scale of the viewport.
+ * Represents the viewport configuration
+ * See {@link https://nextjs.org/docs/app/api-reference/functions/generate-viewport#the-viewport-object | Next.js Viewport Object} for more information.
  */
 export const viewport = {
   themeColor: themeColor,

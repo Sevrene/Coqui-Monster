@@ -1,3 +1,5 @@
+const { client } = require('./sanity/lib/client');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
@@ -32,76 +34,17 @@ const nextConfig = {
 module.exports = {
   ...nextConfig,
   async redirects() {
-    return [
-      {
-        source: '/ref',
-        destination:
-          'https://drive.google.com/drive/folders/14Iw_VApXjpfCAtxqy7s4HDZPlHvos1TA',
-        permanent: true,
-      },
-      {
-        source: '/voice',
-        destination:
-          'https://www.animenewsnetwork.com/encyclopedia/people.php?id=241362',
-        permanent: true,
-      },
-      {
-        source: '/questions',
-        destination: 'https://marshmallow-qa.com/coqui_monster',
-        permanent: true,
-      },
-      {
-        source: '/uwu',
-        destination: 'https://uwumarket.us/collections/coqui',
-        permanent: true,
-      },
-      {
-        source: '/throne',
-        destination: 'https://throne.com/coqui',
-        permanent: true,
-      },
-      {
-        source: '/supps',
-        destination: 'https://gamersupps.gg/?ref=COQUI',
-        permanent: true,
-      },
-      {
-        source: '/humble',
-        destination:
-          'https://www.humblebundle.com/?partner=coqui&charity=78175',
-        permanent: true,
-      },
-      {
-        source: '/free-cword-pass',
-        destination: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        permanent: true,
-      },
-      {
-        source: '/minecraft',
-        destination:
-          'https://discord.com/channels/786373342549770260/1180826995605647441/1248480272488595556',
-        permanent: true,
-      },
-      {
-        source: '/height-chart',
-        destination: '/images/comedy/height_chart.jpg',
-        permanent: true,
-      },
-      {
-        source: '/chair-setup',
-        destination: '/images/comedy/coq_chair.png',
-        permanent: true,
-      },
-      {
-        source: '/nice-booby',
-        destination: '/images/comedy/nice_booby.jpg',
-        permanent: true,
-      },
-      {
-        source: '/egg',
-        destination: '/videos/comedy/hmmmm.mp4',
-        permanent: true,
-      },
-    ];
+    const redirects = await client.fetch(`
+      *[ _type == "siteConfig" ][0].redirects[]{
+        "source": path.current,
+        "destination": url
+      }
+    `);
+
+    return redirects.map((redirect) => ({
+      source: `/${redirect.source}`,
+      destination: redirect.destination,
+      permanent: true,
+    }));
   },
 };
