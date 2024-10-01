@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { NextStudio } from 'next-sanity/studio';
 import config from '/sanity/sanity.config.js';
 
