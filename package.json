@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npm run register-twitch-webhook",
-    "start": "next start && npm run register-twitch-webhook",
-    "lint": "next lint",
-    "register-twitch-webhook": "node scripts/register-twitch-webhook.mjs"
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
